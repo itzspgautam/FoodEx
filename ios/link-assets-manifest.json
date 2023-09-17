@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Gilmer Bold.otf",
+      "sha1": "4828e2aed16a7789b1bb645c086e9d61c623706d"
+    },
+    {
+      "path": "src/assets/fonts/Gilmer Heavy.otf",
+      "sha1": "3d7fd9d008ce0c8a8d368858812d583b02d5f658"
+    },
+    {
+      "path": "src/assets/fonts/Gilmer Light.otf",
+      "sha1": "7a354eba5a47aebd6532436077d020ecb918aff8"
+    },
+    {
+      "path": "src/assets/fonts/Gilmer Medium.otf",
+      "sha1": "2ebdec8c34a434dceb3f4e8056de9ad087077c48"
+    },
+    {
+      "path": "src/assets/fonts/Gilmer Outline.otf",
+      "sha1": "4e578d5f832eae6f04495db481cdd9d9bf5ac34f"
+    },
+    {
+      "path": "src/assets/fonts/Gilmer Regular.otf",
+      "sha1": "401bbb524bcc92082c61a0c57fac63a94332cd4b"
+    }
+  ]
+}

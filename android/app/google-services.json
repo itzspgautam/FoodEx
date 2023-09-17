@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "866869612615",
+    "project_id": "foodex123",
+    "storage_bucket": "foodex123.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866869612615:android:0fe22dbed88f272490e162",
+        "android_client_info": {
+          "package_name": "com.foodex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866869612615-54bpu308jm10iu21a05oldblhpt9kk19.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foodex",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "866869612615-g87mab8ko06jtmp4ruudrmovlc4sog2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj8puMjS1UPUUr2e0X2NAFF1pFlW8TCRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866869612615-bkvagto1ln1ribun5vj7004gf3gtdu5d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "866869612615-ppcfgck8jn6t0o3553qfqfefq7tku39t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.foodex.spg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
