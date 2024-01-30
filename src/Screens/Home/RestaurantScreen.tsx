@@ -1,5 +1,6 @@
 import {
   Animated,
+  Dimensions,
   FlatList,
   Image,
   ImageBackground,
@@ -31,7 +32,9 @@ import GradientView from '../../Components/UI/GradientView';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {getMenu} from '../../State/Features/RestaurantSlice';
 import {ButtonListItemSc, FoodHrListItemSc} from '../../Components/Skeleton';
-
+import {isRestaurantOpen} from '../../Utils/RestaurantUtils';
+import Lottie from 'lottie-react-native';
+import Images from '../../Constants/Images';
 const RestaurantScreen = ({
   navigation,
   route,
@@ -48,7 +51,7 @@ const RestaurantScreen = ({
   const [isSpeechModOpen, setIsSpeechModOpen] = useState(false);
 
   //selector
-  const {cart, store} = useSelector((state: RootState) => state.Cart);
+  const {cart, store, info} = useSelector((state: RootState) => state.Cart);
   const {selected} = useSelector((state: RootState) => state.Restaurant);
 
   //State and vars
@@ -189,7 +192,7 @@ const RestaurantScreen = ({
                   <Heading
                     level="h3"
                     style={{color: Colors.LIGHT[1], marginBottom: 4}}>
-                    {restaurant?.name}
+                    {restaurant?.name}{' '}
                   </Heading>
 
                   <IconFlex icon="location" text={restaurant?.address} />
@@ -325,7 +328,7 @@ const RestaurantScreen = ({
               }}>
               <View style={{gap: 4}}>
                 <Heading level="h4" style={{color: Colors.LIGHT[1]}}>
-                  {cart.length} Item | $490
+                  {info?.total_quantity} Item | ₹{info?.total}
                 </Heading>
                 <Paragraph
                   level={3}
@@ -342,6 +345,39 @@ const RestaurantScreen = ({
             </GradientView>
           </SafeAreaView>
         </TouchableOpacity>
+      )}
+
+      {isRestaurantOpen(restaurant?.operationHours)?.isOpen === false && (
+        <View
+          style={{
+            height: Dimensions.get('window').height,
+            width: Dimensions.get('window').width,
+            position: 'absolute',
+            alignItems: 'center',
+            paddingTop: imageBgGrHeight - 80,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          }}>
+          <Lottie
+            source={Images.GIF.CLOSED_BOARD}
+            autoPlay
+            style={{height: 300}}
+          />
+          <GradientView
+            colors={[Colors.PRIMARY[1], Colors.PRIMARY[2]]}
+            style={{
+              backgroundColor: Colors.PRIMARY[2],
+              marginTop: -50,
+              width: '100%',
+              alignItems: 'center',
+              padding: 5,
+            }}>
+            <Heading
+              level="h5"
+              style={{color: Colors.LIGHT[1], textAlign: 'center'}}>
+              {isRestaurantOpen(restaurant?.operationHours)?.message}
+            </Heading>
+          </GradientView>
+        </View>
       )}
 
       <BottomSheetModalProvider>
@@ -419,9 +455,21 @@ const RestaurantScreen = ({
                         }}>
                         <Paragraph
                           level={1}
+                          fontFamily={Fonts.REGULAR}
+                          style={{
+                            color: Colors.LIGHT[3],
+                            fontSize: 12,
+                            textDecorationLine: 'line-through',
+                            opacity: 0.8,
+                            marginRight: 5,
+                          }}>
+                          ₹{option.regularPrice}
+                        </Paragraph>
+                        <Paragraph
+                          level={1}
                           fontFamily={Fonts.MEDIUM}
                           style={{color: Colors.DARK[3]}}>
-                          ₹{option.price}
+                          ₹{option.salePrice}
                         </Paragraph>
                         <MuiIcon
                           name={

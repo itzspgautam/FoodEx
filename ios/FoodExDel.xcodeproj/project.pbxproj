@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* FoodExTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FoodExTests.m */; };
+		00E356F31AD99517003FC87E /* FoodExDelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FoodExDelTests.m */; };
+		103650464A5D5E16B85FC29C /* Pods_FoodExDel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3055EF0996CA843A449EDC7 /* Pods_FoodExDel.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		234AD8AC1AE4455284F97323 /* Gilmer Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99ADD229BABD461EB2E4AC2B /* Gilmer Heavy.otf */; };
 		31B934EFBF0C4514BA202856 /* Gilmer Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 451B9B4356D94CDAA88BA779 /* Gilmer Regular.otf */; };
-		3514E6D30EF9DEB5E74C72C0 /* Pods_FoodEx_FoodExTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C13395A816C34F1C3D8125F /* Pods_FoodEx_FoodExTests.framework */; };
 		48590F22761148BDB9FBF687 /* Gilmer Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C92E7F79F84946E6AB5E7872 /* Gilmer Medium.otf */; };
 		7829CF6B2A7C0EC800291004 /* libRNCNetInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7829CF662A7C0EBA00291004 /* libRNCNetInfo.a */; };
 		7829CF6C2A7C0ED200291004 /* libRNCNetInfo-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7829CF6A2A7C0EBA00291004 /* libRNCNetInfo-macOS.a */; };
@@ -22,8 +22,8 @@
 		7A9C89132C1948AEB64FB384 /* Gilmer Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 367B3A2BCD264D58A4140F5F /* Gilmer Light.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		99AC6433FA7A4FDD93EED7D2 /* Gilmer Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 28B86BB5B23A41E88422AF98 /* Gilmer Bold.otf */; };
-		A03A52DF5222610F38DE37E1 /* Pods_FoodEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8DAF71106268AC1934493B /* Pods_FoodEx.framework */; };
 		C6AECEDB9F58440CBF1C2FEB /* Gilmer Outline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C78658C99894CF4AB569F94 /* Gilmer Outline.otf */; };
+		E32C7F87755C0F73ECFA3D83 /* Pods_FoodExDel_FoodExDelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4309E31499D70972AAAE4B /* Pods_FoodExDel_FoodExDelTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,31 +58,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* FoodExTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodExTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* FoodExDelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodExDelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* FoodExTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodExTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* FoodEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FoodEx/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = FoodEx/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FoodEx/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FoodEx/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FoodEx/main.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* FoodExDelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodExDelTests.m; sourceTree = "<group>"; };
+		06790FC48644965E1A135F28 /* Pods-FoodExDel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodExDel.debug.xcconfig"; path = "Target Support Files/Pods-FoodExDel/Pods-FoodExDel.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* FoodExDel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodExDel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FoodExDel/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = FoodExDel/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FoodExDel/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FoodExDel/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FoodExDel/main.m; sourceTree = "<group>"; };
 		1C78658C99894CF4AB569F94 /* Gilmer Outline.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilmer Outline.otf"; path = "../src/assets/fonts/Gilmer Outline.otf"; sourceTree = "<group>"; };
 		28B86BB5B23A41E88422AF98 /* Gilmer Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilmer Bold.otf"; path = "../src/assets/fonts/Gilmer Bold.otf"; sourceTree = "<group>"; };
+		2A4309E31499D70972AAAE4B /* Pods_FoodExDel_FoodExDelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodExDel_FoodExDelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		367B3A2BCD264D58A4140F5F /* Gilmer Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilmer Light.otf"; path = "../src/assets/fonts/Gilmer Light.otf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-FoodEx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodEx.debug.xcconfig"; path = "Target Support Files/Pods-FoodEx/Pods-FoodEx.debug.xcconfig"; sourceTree = "<group>"; };
-		3C13395A816C34F1C3D8125F /* Pods_FoodEx_FoodExTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodEx_FoodExTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		451B9B4356D94CDAA88BA779 /* Gilmer Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilmer Regular.otf"; path = "../src/assets/fonts/Gilmer Regular.otf"; sourceTree = "<group>"; };
-		4F8DAF71106268AC1934493B /* Pods_FoodEx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodEx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4925F23856558568B3D555C6 /* Pods-FoodExDel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodExDel.release.xcconfig"; path = "Target Support Files/Pods-FoodExDel/Pods-FoodExDel.release.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-FoodEx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodEx.release.xcconfig"; path = "Target Support Files/Pods-FoodEx/Pods-FoodEx.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-FoodEx-FoodExTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodEx-FoodExTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7829CF5F2A7C0EBA00291004 /* RNCNetInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCNetInfo.xcodeproj; path = "../node_modules/@react-native-community/netinfo/macos/RNCNetInfo.xcodeproj"; sourceTree = "<group>"; };
 		782E8A092A69BF2D00927E9F /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		78F33E7B2A68660B007B7B95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FoodEx/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79BDB163956453576470A44E /* Pods-FoodExDel-FoodExDelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodExDel-FoodExDelTests.release.xcconfig"; path = "Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FoodExDel/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-FoodEx-FoodExTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodEx-FoodExTests.release.xcconfig"; path = "Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests.release.xcconfig"; sourceTree = "<group>"; };
 		99ADD229BABD461EB2E4AC2B /* Gilmer Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilmer Heavy.otf"; path = "../src/assets/fonts/Gilmer Heavy.otf"; sourceTree = "<group>"; };
+		C3055EF0996CA843A449EDC7 /* Pods_FoodExDel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodExDel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92E7F79F84946E6AB5E7872 /* Gilmer Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gilmer Medium.otf"; path = "../src/assets/fonts/Gilmer Medium.otf"; sourceTree = "<group>"; };
+		CA1EE221FBA8C2000886819B /* Pods-FoodExDel-FoodExDelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodExDel-FoodExDelTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -93,7 +97,7 @@
 			files = (
 				7829CF6C2A7C0ED200291004 /* libRNCNetInfo-macOS.a in Frameworks */,
 				7829CF6B2A7C0EC800291004 /* libRNCNetInfo.a in Frameworks */,
-				3514E6D30EF9DEB5E74C72C0 /* Pods_FoodEx_FoodExTests.framework in Frameworks */,
+				E32C7F87755C0F73ECFA3D83 /* Pods_FoodExDel_FoodExDelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A03A52DF5222610F38DE37E1 /* Pods_FoodEx.framework in Frameworks */,
+				103650464A5D5E16B85FC29C /* Pods_FoodExDel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,10 +115,11 @@
 		00E356EF1AD99517003FC87E /* FoodExTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* FoodExTests.m */,
+				00E356F21AD99517003FC87E /* FoodExDelTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = FoodExTests;
+			name = FoodExTests;
+			path = FoodExDelTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -125,7 +130,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* FoodEx */ = {
+		13B07FAE1A68108700A75B9A /* FoodExDel */ = {
 			isa = PBXGroup;
 			children = (
 				782E8A092A69BF2D00927E9F /* Fonts */,
@@ -137,15 +142,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = FoodEx;
+			name = FoodExDel;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4F8DAF71106268AC1934493B /* Pods_FoodEx.framework */,
-				3C13395A816C34F1C3D8125F /* Pods_FoodEx_FoodExTests.framework */,
+				C3055EF0996CA843A449EDC7 /* Pods_FoodExDel.framework */,
+				2A4309E31499D70972AAAE4B /* Pods_FoodExDel_FoodExDelTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,7 +189,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* FoodEx */,
+				13B07FAE1A68108700A75B9A /* FoodExDel */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FoodExTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -200,8 +205,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* FoodEx.app */,
-				00E356EE1AD99517003FC87E /* FoodExTests.xctest */,
+				13B07F961A680F5B00A75B9A /* FoodExDel.app */,
+				00E356EE1AD99517003FC87E /* FoodExDelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,6 +218,10 @@
 				5709B34CF0A7D63546082F79 /* Pods-FoodEx.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-FoodEx-FoodExTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-FoodEx-FoodExTests.release.xcconfig */,
+				06790FC48644965E1A135F28 /* Pods-FoodExDel.debug.xcconfig */,
+				4925F23856558568B3D555C6 /* Pods-FoodExDel.release.xcconfig */,
+				CA1EE221FBA8C2000886819B /* Pods-FoodExDel-FoodExDelTests.debug.xcconfig */,
+				79BDB163956453576470A44E /* Pods-FoodExDel-FoodExDelTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -220,9 +229,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* FoodExTests */ = {
+		00E356ED1AD99517003FC87E /* FoodExDelTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FoodExTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FoodExDelTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -236,14 +245,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = FoodExTests;
+			name = FoodExDelTests;
 			productName = FoodExTests;
-			productReference = 00E356EE1AD99517003FC87E /* FoodExTests.xctest */;
+			productReference = 00E356EE1AD99517003FC87E /* FoodExDelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* FoodEx */ = {
+		13B07F861A680F5B00A75B9A /* FoodExDel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FoodEx" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FoodExDel" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -259,9 +268,9 @@
 			);
 			dependencies = (
 			);
-			name = FoodEx;
+			name = FoodExDel;
 			productName = FoodEx;
-			productReference = 13B07F961A680F5B00A75B9A /* FoodEx.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* FoodExDel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -281,7 +290,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FoodEx" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FoodExDel" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -291,7 +300,7 @@
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
-				78D749B52A6891D2004E2E46 /* XCRemoteSwiftPackageReference "swift-async-algorithms.git" */,
+				78D749B52A6891D2004E2E46 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
@@ -303,8 +312,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* FoodEx */,
-				00E356ED1AD99517003FC87E /* FoodExTests */,
+				13B07F861A680F5B00A75B9A /* FoodExDel */,
+				00E356ED1AD99517003FC87E /* FoodExDelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,15 +392,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx/Pods-FoodEx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel/Pods-FoodExDel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx/Pods-FoodEx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel/Pods-FoodExDel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodEx/Pods-FoodEx-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodExDel/Pods-FoodExDel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		950A44070316C73192329EB2 /* [CP] Copy Pods Resources */ = {
@@ -400,15 +409,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -426,7 +435,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodEx-FoodExTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FoodExDel-FoodExDelTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -439,15 +448,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx/Pods-FoodEx-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel/Pods-FoodExDel-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx/Pods-FoodEx-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel/Pods-FoodExDel-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodEx/Pods-FoodEx-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodExDel/Pods-FoodExDel-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
@@ -465,7 +474,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodEx-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FoodExDel-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -478,15 +487,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodEx-FoodExTests/Pods-FoodEx-FoodExTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodExDel-FoodExDelTests/Pods-FoodExDel-FoodExDelTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D092408FEE5B71934353AAC1 /* [CP-User] [RNFB] Core Configuration */ = {
@@ -528,7 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* FoodExTests.m in Sources */,
+				00E356F31AD99517003FC87E /* FoodExDelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +555,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* FoodEx */;
+			target = 13B07F861A680F5B00A75B9A /* FoodExDel */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -554,7 +563,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-FoodEx-FoodExTests.debug.xcconfig */;
+			baseConfigurationReference = CA1EE221FBA8C2000886819B /* Pods-FoodExDel-FoodExDelTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -575,13 +584,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodEx.app/FoodEx";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodExDel.app/FoodExDel";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-FoodEx-FoodExTests.release.xcconfig */;
+			baseConfigurationReference = 79BDB163956453576470A44E /* Pods-FoodExDel-FoodExDelTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -599,19 +608,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodEx.app/FoodEx";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodExDel.app/FoodExDel";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-FoodEx.debug.xcconfig */;
+			baseConfigurationReference = 06790FC48644965E1A135F28 /* Pods-FoodExDel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = FoodEx/Info.plist;
+				INFOPLIST_FILE = FoodExDel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,8 +631,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.foodex.spg.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = FoodEx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodex.delivery;
+				PRODUCT_NAME = FoodExDel;
 				SWIFT_OBJC_BRIDGING_HEADER = "FoodEx-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -633,12 +642,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-FoodEx.release.xcconfig */;
+			baseConfigurationReference = 4925F23856558568B3D555C6 /* Pods-FoodExDel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = FoodEx/Info.plist;
+				INFOPLIST_FILE = FoodExDel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -649,8 +658,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.foodex.spg.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = FoodEx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foodex.delivery;
+				PRODUCT_NAME = FoodExDel;
 				SWIFT_OBJC_BRIDGING_HEADER = "FoodEx-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -815,7 +824,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FoodExTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FoodExDelTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -824,7 +833,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FoodEx" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FoodExDel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -833,7 +842,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FoodEx" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FoodExDel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
@@ -845,7 +854,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		78D749B52A6891D2004E2E46 /* XCRemoteSwiftPackageReference "swift-async-algorithms.git" */ = {
+		78D749B52A6891D2004E2E46 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
 			requirement = {

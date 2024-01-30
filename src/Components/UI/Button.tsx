@@ -74,7 +74,7 @@ const Button = ({
             style={{height: 70}}
           />
         ) : (
-          <Heading level="h5" style={{color: textColor}}>
+          <Heading level="h5" style={{color: textColor, ...textStyle}}>
             {children}
           </Heading>
         )}

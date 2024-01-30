@@ -6,9 +6,11 @@ import RestaurantReducer from './Features/RestaurantSlice';
 import ProfileReducer from './Features/ProfileSlice';
 import OrderReducer from './Features/OrderSlice';
 import PaymentReducer from './Features/PaymentSlice';
+import ConfigReducer from './Features/ConfigSlice';
 
 export const store = configureStore({
   reducer: {
+    Config: ConfigReducer,
     Cart: CartReducer,
     Auth: AuthReducer,
     General: GeneralReducer,

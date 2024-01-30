@@ -26,6 +26,11 @@ const Colors = {
     2: '#2cb42c',
     3: '#31c831',
   },
+  YELLOW: {
+    1: '#FFD700',
+    2: '#FFA500',
+    3: '#FBB124',
+  },
 };
 
 export default Colors;

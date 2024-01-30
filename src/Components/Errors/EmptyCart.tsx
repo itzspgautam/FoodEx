@@ -5,6 +5,7 @@ import Heading from '../UI/Heading';
 import Button from '../UI/Button';
 import Paragraph from '../UI/Paragraph';
 import Colors from '../../Constants/Colors';
+import {navigate} from '../../Utils/NavigationUtils';
 
 const EmptyCart = () => {
   return (
@@ -28,7 +29,12 @@ const EmptyCart = () => {
           for the day.
         </Paragraph>
       </View>
-      <Button variant="outline" containerStyle={{marginTop: 30, width: '60%'}}>
+      <Button
+        onPress={() => {
+          navigate('Search');
+        }}
+        variant="outline"
+        containerStyle={{marginTop: 30, width: '60%'}}>
         Explore Restaurant
       </Button>
     </View>

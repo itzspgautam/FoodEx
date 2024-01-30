@@ -23,11 +23,13 @@ const CartHrListItem: React.FC<FoodItemProps> = ({item, navigation}) => {
 
   const calcPrice = (customisation: any, quantity: number) => {
     let price = 0;
+    let regular = 0;
     for (const custom of customisation) {
       const {name, option} = custom;
-      price += option.price;
+      price += option.salePrice;
+      regular += option.regularPrice;
     }
-    return price * quantity;
+    return {salePrice: price * quantity, regularPrice: regular * quantity};
   };
   return (
     <ShadowBox style={styles.foodContainer}>
@@ -53,6 +55,7 @@ const CartHrListItem: React.FC<FoodItemProps> = ({item, navigation}) => {
             </Heading>
             {item?.customisation.map((custom: any) => (
               <Paragraph
+                key={custom?.name}
                 level={3}
                 style={{color: Colors.DARK[3], marginTop: 2}}>
                 {custom.name}: {custom?.option?.name}
@@ -73,7 +76,7 @@ const CartHrListItem: React.FC<FoodItemProps> = ({item, navigation}) => {
                 textDecorationLine: 'line-through',
                 opacity: 0.8,
               }}>
-              ₹599
+              ₹{calcPrice(item.customisation, item.quantity).regularPrice}
             </Paragraph>
             <GradientView
               colors={[Colors.PRIMARY[1], Colors.PRIMARY[2]]}
@@ -84,7 +87,7 @@ const CartHrListItem: React.FC<FoodItemProps> = ({item, navigation}) => {
                 style={{
                   color: Colors.LIGHT[1],
                 }}>
-                ₹{calcPrice(item.customisation, item.quantity)}
+                ₹{calcPrice(item.customisation, item.quantity).salePrice}
               </Paragraph>
             </GradientView>
           </View>
@@ -156,7 +159,7 @@ const IconFlex = ({icon, text}: {icon?: any; text?: string}) => {
         level={3}
         fontFamily={Fonts.BOLD}
         style={{color: Colors.DARK[3]}}>
-        {text}r
+        {text}
       </Paragraph>
     </View>
   );

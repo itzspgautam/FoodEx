@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Header} from '../../Components/Section';
 import Icon from 'react-native-vector-icons/Octicons';
 import MuiIcon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -34,18 +34,27 @@ import {
   selectAddress,
 } from '../../State/Features/ProfileSlice';
 import {navigate} from '../../Utils/NavigationUtils';
-import {createOrder, orderFlow} from '../../State/Features/OrderSlice';
+import {
+  clearOrderError,
+  createOrder,
+  orderFlow,
+} from '../../State/Features/OrderSlice';
 import {openRazorpay} from '../../Utils/PaymentUtils';
+import AlertModal, {AlertModalRef} from '../../Components/Alerts/AlertModal';
+import {isRestaurantOpen} from '../../Utils/RestaurantUtils';
 
 const CartScreen = ({navigation}: {navigation: any}) => {
   const dispatch = useDispatch<AppDispatch>();
   const addressSelectRef = useRef<BottomSheetModal>(null);
+  const alertModalRef = useRef<AlertModalRef>(null);
 
   const {restaurants} = useSelector((state: RootState) => state.Restaurant);
 
   const {cart, store, info} = useSelector((state: RootState) => state.Cart);
   const {address} = useSelector((state: RootState) => state.Profile);
-  const {newOrder} = useSelector((state: RootState) => state.Order);
+  const {newOrder, orderFlow: orderFlowState} = useSelector(
+    (state: RootState) => state.Order,
+  );
 
   const [isModalopen, setIsModalOpen] = useState(false);
   const [paymentMode, setPaymentMode] = useState<'CASH' | 'ONLINE'>('ONLINE');
@@ -72,9 +81,48 @@ const CartScreen = ({navigation}: {navigation: any}) => {
       const resultAction = await dispatch(orderFlow({mode: paymentMode}));
       if (resultAction.meta.requestStatus === 'fulfilled') {
         await dispatch(clearCart());
+        navigate('OrderSuccess');
       }
     } catch (error) {}
   };
+
+  const AlertModel = ({
+    status,
+    title,
+    description,
+    buttonText,
+    buttonFunction,
+  }: {
+    status: any;
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonFunction: () => void;
+  }) => {
+    if (alertModalRef.current) {
+      alertModalRef.current.openModal(
+        status,
+        title,
+        description,
+        buttonText,
+        buttonFunction,
+      );
+    }
+  };
+
+  useEffect(() => {
+    console.log(orderFlowState?.error);
+    if (orderFlowState?.error !== null) {
+      AlertModel({
+        status: 'error',
+        title: 'Error!',
+        description: orderFlowState.error,
+        buttonText: 'Close',
+        buttonFunction: () => {},
+      });
+      dispatch(clearOrderError());
+    }
+  }, [orderFlowState.error]);
 
   return (
     <NoInternet>
@@ -120,6 +168,7 @@ const CartScreen = ({navigation}: {navigation: any}) => {
           <EmptyCart />
         ) : (
           <>
+            <AlertModal ref={alertModalRef} />
             <ScrollView style={styles.upperSection}>
               {restaurants?.filter((item: any) => item?._id === store?._id)
                 .length === 0 && (
@@ -139,6 +188,27 @@ const CartScreen = ({navigation}: {navigation: any}) => {
                     fontFamily={Fonts.BOLD}
                     style={{color: Colors.LIGHT[1], paddingRight: 15}}>
                     Services of this restaurant are unavailable in your area.
+                  </Paragraph>
+                </View>
+              )}
+
+              {isRestaurantOpen(store.operationHours)?.isOpen === false && (
+                <View
+                  style={{
+                    backgroundColor: Colors.RED[2],
+                    borderRadius: 10,
+                    padding: 10,
+                    marginBottom: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 10,
+                  }}>
+                  <Icon name="alert" color={Colors.LIGHT[1]} size={24} />
+                  <Paragraph
+                    level={2}
+                    fontFamily={Fonts.BOLD}
+                    style={{color: Colors.LIGHT[1], paddingRight: 15}}>
+                    {isRestaurantOpen(store.operationHours)?.message}
                   </Paragraph>
                 </View>
               )}
@@ -184,7 +254,11 @@ const CartScreen = ({navigation}: {navigation: any}) => {
                                 style={{color: Colors.DARK[3]}}>
                                 {address?.active?._id == '0'
                                   ? address?.active?.streetHouseNumber
-                                  : `${address?.active?.landmark},${address?.active?.streetHouseNumber},${address?.active?.area}`}
+                                  : `${address?.active?.landmark},${address?.active?.streetHouseNumber},${address?.active?.area}`.slice(
+                                      0,
+                                      30,
+                                    )}
+                                ...
                               </Paragraph>
                             </View>
                           </View>
@@ -220,9 +294,18 @@ const CartScreen = ({navigation}: {navigation: any}) => {
                       />
                       <View style={styles.infoContainer}>
                         <View style={{gap: 8}}>
-                          <FlexText left="Subtotal" right="₹299" />
-                          <FlexText left="Delivery Fee" right="Free" />
-                          <FlexText left="Discount" right="₹99" />
+                          <FlexText
+                            left="Subtotal"
+                            right={`₹${info?.subtotal?.toFixed(2)}`}
+                          />
+                          <FlexText
+                            left="Discount"
+                            right={` - ₹${info?.discount?.toFixed(2)}`}
+                          />
+                          <FlexText
+                            left="Delivery Fee"
+                            right={`+ ₹${info?.deliveryFee?.toFixed(2)}`}
+                          />
                         </View>
                         <View
                           style={{
@@ -340,12 +423,15 @@ const CartScreen = ({navigation}: {navigation: any}) => {
                 </View>
                 <View style={{flex: 1, marginTop: 5}}>
                   <Button
-                    isLoading={newOrder.loading}
+                    isLoading={orderFlowState.loading}
                     isDisabled={
                       restaurants &&
                       restaurants?.filter(
                         (item: any) => item?._id === store?._id,
                       ).length === 0
+                        ? true
+                        : isRestaurantOpen(store.operationHours)?.isOpen ===
+                          false
                         ? true
                         : false
                     }
@@ -368,11 +454,24 @@ const CartScreen = ({navigation}: {navigation: any}) => {
               backgroundColor: Colors.LIGHT[1],
               borderRadius: 30,
             }}>
-            <Heading
-              level="h4"
-              style={{marginVertical: 15, marginHorizontal: 15}}>
-              Select Address
-            </Heading>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                paddingHorizontal: 15,
+                marginVertical: 15,
+              }}>
+              <Heading level="h4">Select Address</Heading>
+              <View>
+                <Button
+                  onPress={() => navigate('AddLocation')}
+                  height={30}
+                  buttonStyle={{paddingHorizontal: 10}}
+                  textStyle={{fontSize: 12}}>
+                  Add New
+                </Button>
+              </View>
+            </View>
             {address.loading ? (
               <FlatList
                 pagingEnabled
@@ -385,6 +484,27 @@ const CartScreen = ({navigation}: {navigation: any}) => {
                   paddingBottom: 15,
                 }}
               />
+            ) : address?.addresses?.length === 0 ? (
+              <View
+                style={{
+                  gap: 10,
+                  paddingHorizontal: 10,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 20,
+                }}>
+                <Paragraph level={2} style={{color: Colors.LIGHT[3]}}>
+                  You dont have any saved address.
+                </Paragraph>
+
+                <Button
+                  onPress={() => navigate('AddLocation')}
+                  height={35}
+                  buttonStyle={{paddingHorizontal: 10, width: '50%'}}
+                  textStyle={{fontSize: 14}}>
+                  Add New Address
+                </Button>
+              </View>
             ) : (
               <FlatList
                 pagingEnabled

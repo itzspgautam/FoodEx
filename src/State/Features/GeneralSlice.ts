@@ -18,6 +18,7 @@ import {
   isLocationPermissionGranted,
 } from '../../Utils/LocationPermission';
 import NetInfo from '@react-native-community/netinfo';
+import {getConfig} from './ConfigSlice';
 
 interface State {
   isFirstTime: boolean;
@@ -57,6 +58,9 @@ export const appStart = createAsyncThunk(
       await NetInfo.addEventListener((state: any) => {
         dispatch(setInternet({internet: state}));
       });
+
+      //fetching app config
+      await dispatch(getConfig());
 
       //geting auth from storage and store in state
       const isAuth = await AuthStorage.getUser();

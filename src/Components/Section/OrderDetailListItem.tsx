@@ -8,28 +8,30 @@ import Icon from 'react-native-vector-icons/Octicons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ShadowBox from '../UI/ShadowBox';
 import GradientView from '../UI/GradientView';
-
-interface Food {
-  id: string;
-  restaurantName: string;
-  location: string;
-  image: string;
-  tags: string[];
-  distance: number;
-  rating: number;
-}
+import Button from '../UI/Button';
+import {useDispatch} from 'react-redux';
+import {updateQuantity} from '../../State/Features/CartSlice';
+import {AppDispatch} from '../../State/store';
 
 interface FoodItemProps {
   item: any;
   navigation: any;
-  cartOptionModal?: any;
 }
 
-const FoodHrListItem: React.FC<FoodItemProps> = ({
-  item,
-  navigation,
-  cartOptionModal,
-}) => {
+const OrderDetailListItem: React.FC<FoodItemProps> = ({item, navigation}) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const calcPrice = (customisation: any, quantity: number) => {
+    console.log('cus quan', customisation, quantity);
+    let price = 0;
+    let regular = 0;
+    for (const custom of customisation) {
+      const {name, option} = custom;
+      price += option.salePrice;
+      regular += option.regularPrice;
+    }
+    return {salePrice: price * quantity, regularPrice: regular * quantity};
+  };
   return (
     <ShadowBox style={styles.foodContainer}>
       <Image
@@ -50,58 +52,48 @@ const FoodHrListItem: React.FC<FoodItemProps> = ({
               font={Fonts.BOLD}
               style={{color: Colors.DARK[2], maxWidth: 200}}
               numberOfLines={1}>
-              {item.name}
+              {item?.food?.name} x {item?.quantity}
             </Heading>
-            <Paragraph level={3} style={{color: Colors.DARK[3], marginTop: 2}}>
-              {'This is about'}
-              {item?._id}
-            </Paragraph>
-          </View>
-
-          <View
-            style={{
-              flexDirection: 'row',
-              gap: 5,
-              alignItems: 'flex-end',
-            }}>
-            <Paragraph
-              level={3}
-              style={{
-                color: Colors.LIGHT[3],
-                textDecorationLine: 'line-through',
-                opacity: 0.8,
-              }}>
-              ₹{item?.customizations[0]?.options[0].regularPrice}
-            </Paragraph>
-            <GradientView
-              colors={[Colors.PRIMARY[1], Colors.PRIMARY[2]]}
-              style={{borderRadius: 32, padding: 2, paddingHorizontal: 8}}>
+            {item?.customisation.map((custom: any) => (
               <Paragraph
+                key={custom?.name}
                 level={3}
-                fontFamily={Fonts.BOLD}
-                style={{
-                  color: Colors.LIGHT[1],
-                }}>
-                ₹{item?.customizations[0]?.options[0].salePrice}
+                style={{color: Colors.DARK[3], marginTop: 2}}>
+                {custom.name}: {custom?.option?.name}
               </Paragraph>
-            </GradientView>
+            ))}
           </View>
         </View>
       </View>
-      <View style={{justifyContent: 'flex-end'}}>
-        <TouchableOpacity onPress={() => cartOptionModal(item)}>
+      <View style={{justifyContent: 'center'}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            gap: 5,
+            alignItems: 'flex-end',
+          }}>
+          <Paragraph
+            level={3}
+            style={{
+              color: Colors.LIGHT[3],
+              textDecorationLine: 'line-through',
+              opacity: 0.8,
+            }}>
+            ₹{calcPrice(item.customisation, item.quantity).regularPrice}
+          </Paragraph>
           <GradientView
             colors={[Colors.PRIMARY[1], Colors.PRIMARY[2]]}
-            style={{
-              height: 25,
-              width: 25,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 32,
-            }}>
-            <Icon name="plus" size={18} color={Colors.LIGHT[1]} />
+            style={{borderRadius: 32, padding: 2, paddingHorizontal: 4}}>
+            <Paragraph
+              level={2}
+              fontFamily={Fonts.BOLD}
+              style={{
+                color: Colors.LIGHT[1],
+              }}>
+              ₹{calcPrice(item.customisation, item.quantity).salePrice}
+            </Paragraph>
           </GradientView>
-        </TouchableOpacity>
+        </View>
       </View>
     </ShadowBox>
   );
@@ -116,9 +108,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   foodImage: {
-    width: 65,
-    height: 65,
-    borderRadius: 10,
+    width: 50,
+    height: 50,
+    borderRadius: 6,
     backgroundColor: Colors.LIGHT[2],
   },
   restaurantData: {
@@ -141,4 +133,4 @@ const IconFlex = ({icon, text}: {icon?: any; text?: string}) => {
     </View>
   );
 };
-export default FoodHrListItem;
+export default OrderDetailListItem;

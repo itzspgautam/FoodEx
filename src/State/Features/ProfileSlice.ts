@@ -25,6 +25,7 @@ export interface SingleAddress {
   country?: string;
   landmark?: string;
   user?: string;
+  phoneNumber?: string;
   coordinates?: LocationCoordinates;
 }
 
@@ -54,7 +55,7 @@ export const cretaeAddress = createAsyncThunk(
       const state = getState() as {Auth: AuthState};
       const token = state?.Auth?.token;
 
-      await axios.post(
+      const {data: saved} = await axios.post(
         `${AppConfig.API}/api/profile/address/new`,
         addressData,
         {
@@ -63,6 +64,9 @@ export const cretaeAddress = createAsyncThunk(
           },
         },
       );
+      console.log('THis is saved', saved.address);
+      await dispatch(selectAddress(saved.address));
+
       const {payload} = await dispatch(getAddresses());
       return payload;
     } catch (error: any) {

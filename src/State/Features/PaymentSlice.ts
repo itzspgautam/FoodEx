@@ -88,7 +88,7 @@ export const PaymentSlice = createSlice({
   name: 'payment',
   initialState,
   reducers: {
-    clearOrderError: (state, action: PayloadAction) => {},
+    // clearOrderError: (state, action: PayloadAction) => {},
   },
   extraReducers: builder => {
     builder
@@ -122,5 +122,5 @@ export const PaymentSlice = createSlice({
   },
 });
 
-export const {clearOrderError} = PaymentSlice.actions;
+export const {} = PaymentSlice.actions;
 export default PaymentSlice.reducer;

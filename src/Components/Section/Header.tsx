@@ -9,10 +9,12 @@ const Header = ({
   navigation,
   centerItem,
   rightItem,
+  showBackButton = true,
 }: {
   navigation: any;
   centerItem?: ReactNode;
   rightItem?: ReactNode;
+  showBackButton?: boolean;
 }) => {
   return (
     <SafeAreaView edges={['top']} style={{width: '100%'}}>
@@ -20,9 +22,11 @@ const Header = ({
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={() => navigation.goBack()}>
-          <ShadowBox style={styles.backButton}>
-            <Icon name="chevron-left" size={24} color={Colors.DARK[1]} />
-          </ShadowBox>
+          {showBackButton && (
+            <ShadowBox style={styles.backButton}>
+              <Icon name="chevron-left" size={24} color={Colors.DARK[1]} />
+            </ShadowBox>
+          )}
         </TouchableOpacity>
         {centerItem && centerItem}
         {rightItem && (

@@ -22,6 +22,7 @@ const Images = {
     BUTTON_LOADING: require('../assets/images/button-loading.json'),
     BUTTON_LOADING_LIGHT: require('../assets/images/button-loading-light.json'),
     ORDER_CONFIRMED: require('../assets/images/order-confirmed.json'),
+    CLOSED_BOARD: require('../assets/images/closed-board.json'),
   },
 };
 

@@ -13,6 +13,7 @@ import {appStart} from '../State/Features/GeneralSlice';
 import {navigationRef} from '../Utils/NavigationUtils';
 import LocationPermission from '../Components/Errors/LocationPermission';
 import OrderSuccessScreen from '../Screens/Home/Order/OrderSuccessScreen';
+import OrderDetailScreen from '../Screens/Home/Order/OrderDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -60,6 +61,10 @@ const Navigators = () => {
                 <Stack.Screen
                   name="OrderSuccess"
                   component={OrderSuccessScreen}
+                />
+                <Stack.Screen
+                  name="OrderDetail"
+                  component={OrderDetailScreen}
                 />
               </>
             )}

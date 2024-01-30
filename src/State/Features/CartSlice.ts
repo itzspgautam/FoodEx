@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {store} from '../store';
+import {RootState, store} from '../store';
 import CartStorage from '../../storage/CartStorage';
 
 interface addToCartProps {
@@ -23,7 +23,7 @@ interface CartState {
     total_quantity: number;
     subtotal: number;
     discount: number;
-    delivery: number;
+    deliveryFee: number;
     total: number;
   };
 }
@@ -36,7 +36,7 @@ const initialState: CartState = {
     total_quantity: 0,
     subtotal: 0,
     discount: 0,
-    delivery: 0,
+    deliveryFee: 0,
     total: 0,
   },
 };
@@ -45,6 +45,7 @@ export const addToBag = createAsyncThunk(
   'cart/add',
   async (newItem: addToCartProps, {rejectWithValue, getState, dispatch}) => {
     const {Cart} = getState() as {Cart: CartState};
+    const AllState: any = getState();
     try {
       let cart = Cart.cart ? JSON.parse(JSON.stringify(Cart.cart)) : [];
       let store = Cart.store;
@@ -72,7 +73,7 @@ export const addToBag = createAsyncThunk(
         //else add item
         cart.push(newItem);
       }
-      const info = await calculateInfo(cart);
+      const info = await calculateInfo(cart, AllState?.Config);
 
       //saving to storage
       const value = JSON.stringify({cart, store, info});
@@ -90,6 +91,7 @@ export const updateQuantity = createAsyncThunk(
   'cart/update',
   async (update: UpdateQuantityProps, {rejectWithValue, getState}) => {
     const {Cart} = getState() as {Cart: CartState};
+    const AllState: any = getState();
     try {
       let cart = Cart.cart ? JSON.parse(JSON.stringify(Cart.cart)) : [];
 
@@ -113,7 +115,7 @@ export const updateQuantity = createAsyncThunk(
         //remove item if quanitity becomes 0
         cart[index].quantity === 0 && cart.splice(index, 1);
       }
-      const info = await calculateInfo(cart);
+      const info = await calculateInfo(cart, AllState?.Config);
 
       //saving to storage
       let store = Cart.store;
@@ -149,8 +151,11 @@ export const CartSlice = createSlice({
       const payload = JSON.parse(action.payload);
       state.cart = payload.cart;
       state.store = payload.store;
-      state.info.total = payload.info.total;
-      state.info.total_quantity = payload.info.total_quantity;
+      state.info.subtotal = payload.info?.subTotal ?? 0;
+      state.info.deliveryFee = payload.info?.deliveryFee ?? 0;
+      state.info.discount = payload.info?.discount ?? 0;
+      state.info.total_quantity = payload.info?.total_quantity ?? 0;
+      state.info.total = payload.info?.total ?? 0;
     },
   },
   extraReducers: builder => {
@@ -162,8 +167,11 @@ export const CartSlice = createSlice({
         state.loading = false;
         state.cart = action.payload.cart;
         state.store = action.payload.store;
+        state.info.subtotal = action.payload.info?.subTotal ?? 0;
+        state.info.deliveryFee = action.payload.info?.deliveryFee ?? 0;
         state.info.total_quantity = action.payload.info?.total_quantity ?? 0;
         state.info.total = action.payload.info?.total ?? 0;
+        state.info.discount = action.payload.info?.discount ?? 0;
       })
       .addCase(addToBag.rejected, (state, action) => {
         state.loading = true;
@@ -176,8 +184,11 @@ export const CartSlice = createSlice({
       .addCase(updateQuantity.fulfilled, (state, action) => {
         state.loading = false;
         state.cart = action.payload.cart;
+        state.info.subtotal = action.payload.info?.subTotal ?? 0;
+        state.info.deliveryFee = action.payload.info?.deliveryFee ?? 0;
         state.info.total_quantity = action.payload.info?.total_quantity ?? 0;
         state.info.total = action.payload.info?.total ?? 0;
+        state.info.discount = action.payload.info?.discount ?? 0;
       })
       .addCase(updateQuantity.rejected, (state, action) => {
         state.loading = true;
@@ -192,23 +203,43 @@ export const CartSlice = createSlice({
   },
 });
 
-const calculateInfo = (cart: any) => {
+const calculateInfo = (cart: any, {config}: any) => {
+  console.log(cart[0]?.store?.distance);
   try {
-    let total = 0;
+    let subTotal = 0;
+    let deliveryFee = 0;
     let total_quantity = 0;
+    let total = 0;
+    let discount = 0;
 
+    //Calculte delivery fee
+    const amountPerKM = config?.delivery?.amountPerKM;
+    const storeDistanceInKM = cart[0]?.store?.distance / 1000;
+    deliveryFee = amountPerKM * storeDistanceInKM;
+
+    //calculate subtotal and quantity
     for (const cartItem of cart) {
       const {customisation, quantity} = cartItem;
-      let price = 0;
+      let regularPrice = 0;
+      let salePrice = 0;
       for (const custom of customisation) {
         const {name, option} = custom;
-        price += option.price;
+        regularPrice += option.regularPrice;
+        salePrice += option.salePrice;
       }
 
-      total += price * quantity;
+      subTotal += regularPrice * quantity;
+      discount += (regularPrice - salePrice) * quantity;
+      total += salePrice * quantity;
       total_quantity += quantity;
     }
-    return {total_quantity, total};
+    return {
+      total_quantity,
+      subTotal: Math.round(subTotal),
+      discount: Math.round(discount),
+      deliveryFee: Math.round(deliveryFee),
+      total: Math.round(total + deliveryFee),
+    };
   } catch (error) {
     console.log(error);
   }

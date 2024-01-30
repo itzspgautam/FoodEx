@@ -144,7 +144,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
             level="h2"
             font={Fonts.HEAVY}
             style={{color: Colors.DARK[1]}}>
-            Hello, Foodie!
+            Hello, Delivery Expert!
           </Heading>
           <Paragraph
             level={2}

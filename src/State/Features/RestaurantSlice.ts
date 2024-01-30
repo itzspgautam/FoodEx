@@ -14,7 +14,7 @@ import {ProfileState, SingleAddress} from './ProfileSlice';
 export interface Restaurant {
   _id: string;
   name: string;
-  location: string;
+  location: {coordinates: [number, number]};
   logo: string;
   banner: string;
   tags: string[];

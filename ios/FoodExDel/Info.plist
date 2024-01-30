@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>FoodEx</string>
+	<string>FoodEx Delivery</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.foodex.spg</string>
+			<string>com.foodex.delivery</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>app-1-866869612615-ios-fb58555980c08b5390e162</string>
+				<string>app-1-866869612615-ios-7f2d37fdf34f931e90e162</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,7 +37,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.866869612615-ppcfgck8jn6t0o3553qfqfefq7tku39t</string>
+				<string>com.googleusercontent.apps.866869612615-ca54sf4sp6q6k126t9h1s4l0jrm58769</string>
 			</array>
 		</dict>
 	</array>

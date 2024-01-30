@@ -27,7 +27,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'FoodEx' do
+target 'FoodExDel' do
   config = use_native_modules!
 
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
@@ -49,7 +49,7 @@ target 'FoodEx' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'FoodExTests' do
+  target 'FoodExDelTests' do
     inherit! :complete
     # Pods for testing
   end
